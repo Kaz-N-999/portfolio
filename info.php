@@ -9,10 +9,11 @@
     <script src="js\jquery.japan-map.min.js"></script>
 
     <script>
+        var prefecture
         $(function() {
             $("#map-container").japanMap({
                 onSelect: function(data) {
-                    var prefecture = data.code;
+                    prefecture = data.name;
                     target = document.getElementById("output");
                     target.innerHTML = data.name;
                 }
@@ -23,16 +24,22 @@
 
 <body>
     <div id="map-container"></div>
-    <script></script>
     <h1 id="output"></h1>
 
-    <form method="POST" action="upimg.php" enctype="multipart/form-data">
-        <label>市町村:<input type="text" name="city"></label>
+    <form name="myform" method="POST" action="upload.php" enctype="multipart/form-data">
+        <label>市町村:<input type="text" name="city" required></label><br>
+        <label>コメント:<input type="text" class="txt" name="comment" required></label>
 
-        <input type="file" name="upimg" accept="image/*">
-        <input type="submit">
+        <input type="file" name="img" accept="image/*">
 
+        <input type="submit" value="送信">
     </form>
+    <button type="button" onclick="funcBtn()">確認</button>
+    <script>
+        function funcBtn() {
+    alert(prefecture);
+}
+    </script>
 </body>
 
 </html>
