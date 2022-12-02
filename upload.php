@@ -11,24 +11,22 @@
 <body>
     <?php
     //データベース登録
-    $raw = file_get_contents('php://input'); // POSTされた生のデータを受け取る
-    $prefecture = json_decode($raw); // json形式をphp変数に変換
-    if ($prefecture != null) {
+    $prefecture = $_POST["prefecture"];
+    if ($prefecture != "undefined") {
         try {
             $mysqli = new mysqli("localhost", "root", "kochiya518", "trip");
             if ($mysqli->connect_error) { // connect_errorはPHP5.3.0以降で有効
                 die("connect_error" . $mysqli->connect_error);
             }
             // エスケープ処理
-            $search_query = $mysqli->real_escape_string($search_query);
+            //$search_query = $mysqli->real_escape_string($search_query);
 
             $mysqli->set_charset("utf8");
             $stmt = $mysqli->prepare('INSERT INTO `report` (prefecture, city, img, comment) VALUES (?,?,?,?)');
-            $prefecture = $_POST["prefecture"];
             $city = $_POST["city"];
             $img = $_POST["img"];
             $comment = $_POST["comment"];
-            $stmt->bind_param("ssss", $prefecture, $city, $img, $comment);
+            $stmt->execute(array($prefecture, $city, $img, $comment));
             // executeでクエリを実行
             $stmt->execute();
     ?>
@@ -46,7 +44,7 @@
             print($e->getTraceAsString());
         }
     } else {
-        echo "※都道府県を選択してください"($prefecture);
+        echo "※都道府県を選択してください";
     }
     ?>
 </body>

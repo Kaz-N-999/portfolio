@@ -32,12 +32,18 @@
 
         <input type="file" name="img" accept="image/*">
 
-        <input type="submit" value="送信">
+        <input type="submit" value="送信" onclick="funcBtn()">
     </form>
-    <button type="button" onclick="funcBtn()">確認</button>
     <script>
         function funcBtn() {
-    alert(prefecture);
+    // エレメントを作成
+    var ele = document.createElement('input');
+    // データを設定
+    ele.setAttribute('type', 'hidden');
+    ele.setAttribute('name', 'prefecture');
+    ele.setAttribute('value', prefecture);
+    // 要素を追加
+    document.myform.appendChild(ele);
 }
     </script>
 </body>
