@@ -22,13 +22,21 @@
             //$search_query = $mysqli->real_escape_string($search_query);
 
             $mysqli->set_charset("utf8");
-            $stmt = $mysqli->prepare('INSERT INTO `report` (prefecture, city, img, comment) VALUES (?,?,?,?)');
+            $stmt = $mysqli->prepare('INSERT INTO `report` (prefecture, city, comment) VALUES (?,?,?)');
             $city = $_POST["city"];
-            $img = $_POST["img"];
             $comment = $_POST["comment"];
-            $stmt->execute(array($prefecture, $city, $img, $comment));
             // executeでクエリを実行
-            $stmt->execute();
+            $stmt->execute(array($prefecture, $city, $comment));
+
+            //画像の保存
+            $stmt = $mysqli->prepare('INSERT INTO `images` (img_name, img_type, img_content, img_size, created_at) VALUES (?,?,?,?,now())');
+            $name = $_FILES['img']['name'];
+            $type = $_FILES['img']['type'];
+            $content = file_get_contents($_FILES['img']['tmp_name']);
+            $size = $_FILES['img']['size'];
+            // executeでクエリを実行
+            $stmt->execute(array($name, $type, $content, $size));
+
     ?>
             <tr>
                 <td><?php echo "$prefecture"; ?></td>
