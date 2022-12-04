@@ -10,7 +10,7 @@
 
 <body>
     <center>
-        <h3><a href="../info.php">トップページに戻る</a></h3>
+        <h3><a href="/">トップページに戻る</a></h3>
         <h4>ログ表示</h4>
 
         <table border="3" cellspacing="0" cellpadding="8" width="90%">
@@ -26,6 +26,7 @@
                 @foreach ($items as $item)
                 <tr>
 
+                    <td>{{$item->created_at}}</td>
                     <td>{{$item->prefecture}}</td>
                     <td>{{$item->city}}</td>
                     <td>{{$item->comment}}</td>

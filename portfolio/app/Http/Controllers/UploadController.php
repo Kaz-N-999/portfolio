@@ -10,7 +10,7 @@ class UploadController extends Controller
     public function upload(Request $request)
     {
         $img = $request->image->store('public');
-        \DB::table('file_path')->create([
+        DB::table('file_path')->create([
             'file_path' => $img
         ]);
         return view('index');

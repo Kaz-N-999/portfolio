@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::get('/list', 'App\Http\Controllers\ListController@read');
 
-Route::post('/upload', 'App\Http\Controllers\ListController@upload');
+Route::post('/create', 'App\Http\Controllers\ListController@create');
