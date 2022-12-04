@@ -29,7 +29,9 @@
     <div id="map-container"></div>
     <h1 id="output"></h1>
 
-    <form name="myform" method="POST" action="upload.php" enctype="multipart/form-data">
+    <form name="myform" method="POST" action="/upload" enctype="multipart/form-data">
+        @csrf
+        
         <label>市町村:<input type="text" name="city" required></label><br>
         <label>コメント:<input type="text" class="txt" name="comment" required></label>
 
@@ -49,6 +51,7 @@
     document.myform.appendChild(ele);
 }
     </script>
+    <h3><a href="/list">表示</a></h3>
 </body>
 
 </html>
