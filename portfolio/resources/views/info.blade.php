@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>旅行記録アプリ</title>
+    <title>旅行写真記録アプリ</title>
     <script src="js\jquery-3.6.1.min.js"></script>
     <script src="js\jquery.japan-map.js"></script>
     <script src="js\jquery.japan-map.min.js"></script>
@@ -29,7 +29,7 @@
 
 <body>
     @if ($errors->any())
-    <h2>エラーメッセージ</h2>
+    <h2>エラー</h2>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>

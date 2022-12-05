@@ -14,5 +14,7 @@ class trip extends Model
         'prefecture',
         'city',
         'comment',
+        'img_name',
+        'path',
     ];
 }

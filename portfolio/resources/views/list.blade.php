@@ -25,7 +25,7 @@
 
                 @foreach ($items as $item)
                 <tr>
-
+                    <td><img src="{{ asset($item->path) }}"></td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->prefecture}}</td>
                     <td>{{$item->city}}</td>
