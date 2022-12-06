@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//登録画面（初期画面）
 Route::get('/', function () {
     return view('info');
 });
-
+//ログ表示
 Route::get('/list', 'App\Http\Controllers\ListController@read');
-
+//新規作成
 Route::post('/create', 'App\Http\Controllers\ListController@create');
+//削除機能
+Route::post('/destroy{id}', 'App\Http\Controllers\ListController@destroy')->name('destroy');

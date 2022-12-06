@@ -21,15 +21,22 @@
                     <th>都道府県</th>
                     <th>市町村</th>
                     <th>コメント</th>
+                    <th>削除</th>
                 </tr>
 
                 @foreach ($items as $item)
                 <tr>
-                    <td><img src="{{ asset($item->path) }}"></td>
+                    <td><img src="{{ asset($item->path) }}" width="250px" height="250px"></td>
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->prefecture}}</td>
                     <td>{{$item->city}}</td>
                     <td>{{$item->comment}}</td>
+                    <td>
+                        <form action={{ route('destroy',['id' => $item->id]), }} method="POST">
+                          @csrf
+                          <button type="submit" class="btn btn-danger">削除</button>
+                        </form>
+                      </td>
                 </tr>
                 @endforeach
             </tbody>

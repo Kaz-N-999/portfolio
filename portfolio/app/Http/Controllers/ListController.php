@@ -15,20 +15,22 @@ class ListController extends Controller
         return view('/list', ['items' => $items]);
     }
 
+    //データベースに新規登録
     public function create(Request $request)
     {
         //画像の保存
         $dir = 'user';
+        //インスタンス生成
+        $trip = new trip();
         // アップロードされたファイル名を取得
         $file_name = $request->file('img')->getClientOriginalName();
         //ディレクトリに保存
         $request->file('img')->storeAs('public/' . $dir, $file_name);
 
-
         //データベースに値を挿入
         //インスタンスを生成
         $trip = new trip();
-        //画像パス
+        //画像パスを保存
         $trip->img_name = $file_name;
         $trip->path = 'storage/' . $dir . '/' . $file_name;
         //テキストデータ
@@ -37,9 +39,19 @@ class ListController extends Controller
         $trip->comment = $request->comment;
         $trip->save();
 
-        // 変数をビューに渡す
-        return view('info')->with([
-        ]);
+        // 登録画面に戻る
+        return view('info')->with([]);
+    }
 
+    //データベースから特定のIDのレコードを削除
+    public function destroy($id)
+    {
+        //インスタンス生成
+        $trip = new trip();
+        // 指定されたIDのレコードを削除
+        $trip->deleteBookById($id);
+        // 削除したらデータを取得したら一覧画面に戻る
+        $items = DB::select('select * from report');
+        return view('/list', ['items' => $items]);
     }
 }
