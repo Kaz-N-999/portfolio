@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\trip;
+use Illuminate\Support\Facades\Storage;
 
 class ListController extends Controller
 {
     //データベースから値を取得
     public function read()
     {
-        $items = DB::select('select * from report');
+        //5件ずつデータを取得
+        $items = DB::table('report')->orderBy('id')->cursorPaginate(5);
         return view('/list', ['items' => $items]);
     }
 
@@ -33,7 +35,7 @@ class ListController extends Controller
         //画像パスを保存
         $trip->img_name = $file_name;
         $trip->path = 'storage/' . $dir . '/' . $file_name;
-        //テキストデータ
+        //テキストデータを保存
         $trip->prefecture = $request->prefecture;
         $trip->city = $request->city;
         $trip->comment = $request->comment;
@@ -48,10 +50,13 @@ class ListController extends Controller
     {
         //インスタンス生成
         $trip = new trip();
+        //画像削除用のパスの設定
+
+        
         // 指定されたIDのレコードを削除
         $trip->deleteBookById($id);
         // 削除したらデータを取得したら一覧画面に戻る
-        $items = DB::select('select * from report');
+        $items = DB::table('report')->orderBy('id')->cursorPaginate(5);
         return view('/list', ['items' => $items]);
     }
 }

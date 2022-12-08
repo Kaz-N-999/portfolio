@@ -32,15 +32,16 @@
                     <td>{{$item->city}}</td>
                     <td>{{$item->comment}}</td>
                     <td>
-                        <form action={{ route('destroy',['id' => $item->id]), }} method="POST">
-                          @csrf
-                          <button type="submit" class="btn btn-danger">削除</button>
+                        <form action={{ route('destroy',['id'=> $item->id]), }} method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">削除</button>
                         </form>
-                      </td>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        {!! $items->links() !!}
 
     </center>
 </body>
