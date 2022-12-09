@@ -10,7 +10,7 @@
 
 <body>
     <center>
-        <h3><a href="/">トップページに戻る</a></h3>
+        <h3><a href="/info">トップページに戻る</a></h3>
         <h4>ログ表示</h4>
 
         <table border="3" cellspacing="0" cellpadding="8" width="90%">
