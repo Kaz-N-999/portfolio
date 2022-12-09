@@ -10,8 +10,47 @@
 
 <body>
     <center>
-        <h3><a href="/info">トップページに戻る</a></h3>
-        <h4>ログ表示</h4>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/info">旅行写真記録アプリ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/info">登録画面</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Google MAP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/list">履歴閲覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CONTACT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ログアウト</a>
+                        </li>
+                        <!--         <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ドロップダウン</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">リンク1</a></li>
+                      <li><a class="dropdown-item" href="#">リンク2</a></li>
+                      <li><a class="dropdown-item" href="#">リンク3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input type="search" class="form-control" placeholder="検索..." aria-label="検索...">
+                </form>
+            -->
+                </div>
+            </div>
+        </nav>
 
         <table border="3" cellspacing="0" cellpadding="8" width="90%">
             <tbody>
@@ -44,6 +83,11 @@
         {!! $items->links() !!}
 
     </center>
+    <footer class="bg-dark text-center">
+        <div class="container">
+            <p class="my-0 text-white py-3">&copy;Trip report</p>
+        </div>
+    </footer>
 </body>
 
 </html>
