@@ -48,24 +48,11 @@
                 <a class="nav-link" href="/list">履歴閲覧</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">CONTACT</a>
+                <a class="nav-link" href="/contact">CONTACT</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">ログアウト</a>
               </li>
-    <!--         <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ドロップダウン</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">リンク1</a></li>
-                  <li><a class="dropdown-item" href="#">リンク2</a></li>
-                  <li><a class="dropdown-item" href="#">リンク3</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input type="search" class="form-control" placeholder="検索..." aria-label="検索...">
-            </form>
-        -->
           </div>
         </div>
       </nav>

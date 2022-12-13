@@ -1,11 +1,10 @@
 <html>
 
 <head>
-    <title>ログ表示</title>
+    <title>履歴確認</title>
     <meta charset="utf-8" />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -30,24 +29,11 @@
                             <a class="nav-link active" href="/list">履歴閲覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
+                            <a class="nav-link" href="/contact">CONTACT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">ログアウト</a>
                         </li>
-                        <!--         <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ドロップダウン</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">リンク1</a></li>
-                      <li><a class="dropdown-item" href="#">リンク2</a></li>
-                      <li><a class="dropdown-item" href="#">リンク3</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input type="search" class="form-control" placeholder="検索..." aria-label="検索...">
-                </form>
-            -->
                 </div>
             </div>
         </nav>

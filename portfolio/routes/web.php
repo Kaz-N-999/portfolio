@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,9 @@ Route::get('/list', 'App\Http\Controllers\ListController@read');
 Route::post('/create', 'App\Http\Controllers\ListController@create');
 //削除機能
 Route::post('/destroy{id}', 'App\Http\Controllers\ListController@destroy')->name('destroy');
+
+//入力フォームページ
+Route::get('/contact', 'App\Http\Controllers\ContactsController@index')->name('contact');
+//送信完了ページ
+Route::post('/finish', 'App\Http\Controllers\ContactsController@send');
 
