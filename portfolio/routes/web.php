@@ -35,6 +35,11 @@ require __DIR__.'/auth.php';
 Route::get('/info', function () {
     return view('info');
 });
+
+Route::get('/map', function () {
+    return view('map');
+});
+
 //ログ表示
 Route::get('/list', 'App\Http\Controllers\ListController@read');
 //新規作成

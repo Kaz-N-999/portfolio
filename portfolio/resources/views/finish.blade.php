@@ -10,7 +10,8 @@
 </head>
 <body>
     <h1>送信が完了しました！</h1>
-    {!! $title !!} 
+    {!! $title !!} <br>
     {!! $body !!}
+    <button class="btn" onclick="location.href='contact'" >戻る</button>
 </body>
 </html>

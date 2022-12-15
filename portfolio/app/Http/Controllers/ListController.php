@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\trip;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ListController extends Controller
 {
@@ -53,9 +54,8 @@ class ListController extends Controller
         //画像削除用のパスの設定
         $deleteimg = trip::find($id);
         $d_imgname = $deleteimg->img_name;
-        $d_path = storage_path().'/public/storage/user/'.$d_imgname;
         //画像を削除する
-        Storage::delete($d_path);
+        Storage::disk('public')->delete('user/'.$d_imgname);
         // 指定されたIDのレコードを削除
         $trip->deleteBookById($id);
         // 削除したらデータを取得したら一覧画面に戻る
