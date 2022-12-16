@@ -42,7 +42,7 @@
                 <a class="nav-link active" aria-current="page" href="/info">登録画面</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="map">Google MAP</a>
+                <a class="nav-link" href="/map">Google MAP</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/list">履歴閲覧</a>
@@ -58,7 +58,7 @@
       </nav>
 
     @if ($errors->any())
-    <h2>エラー</h2>
+    <h2>エラーメッセージ</h2>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>

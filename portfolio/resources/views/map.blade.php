@@ -40,9 +40,24 @@
       </div>
     </div>
   </nav>
+
+  <!-- 座標の値を取得し、Javascriptに渡す-->
+  <script>
+    var lat = [];
+    var lng = [];
+    var marker = [];
+    var markerData = [];
+  </script>
+  @foreach ($markers as $marker)
+    <script>
+      lat = @json($marker->lat);
+      lng = @json($marker->lng);
+      markerData = [@json(var_dump($marker->lat)),@json(var_dump($marker->lng))];
+    </script>
+  @endforeach
+
   <div id="map" style="height:500px">
   </div>
-
   <script type="text/javascript">
     function initMap() {
 
@@ -54,34 +69,44 @@
 
       // クリックイベントを追加
       map.addListener('click', function(e){
-      console.log(e.latLng.lat());
-      console.log(e.latLng.lng());
-      console.log(e.latLng.toString());
-      this.setCenter(e.latLng);
-      var marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title: "Empire !",
-      animation: google.maps.Animation.DROP
-    });
+          // データをセット
+          document.getElementById( "setlat" ).value = e.latLng.lat().toString();
+          document.getElementById( "setlng" ).value = e.latLng.lng().toString();
 
-    marker.addListener('click', function(){
-        this.setMap(null);
       });
-    });
+
+      for(let i=0; i < lat.length; i++){
+//      var latNum = parseFloat(lat[i]);
+//      var lngNum = parseFloat(lng[i]);
+        // マーカー位置セット
+        markerLatLng = new google.maps.LatLng({lat: markerData[i], lng: markerData[i]}); // 緯度経度のデータ作成
+         // マーカーのセット
+        marker[i] = new google.maps.Marker({
+            position: markerLatLng,          // 位置を指定
+            map: map,                        // 地図を指定
+          });
+      }
+//  marker.addListener('click', function(){
+//      this.setMap(null);
+//    });
       
     }
   </script>
 
-  <form name="myform" method="POST" action="/create">
-    <input type="submit" value="ピンを保存する">
+  <form name="markerform" method="POST" action="/marker">
+
+    @csrf
+    <label>緯度<input type="text" id="setlat" name="lat" readonly></label>
+    <label>経度<input type="text" id="setlng" name="lng" readonly></label>
+    <input type="submit" value="マーカーを保存する">
+
   </form>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config("services.google-map.apikey")}}&callback=initMap"></script>
 
   <footer class="bg-dark text-center">
     <div class="container">
-        <p class="my-0 text-white py-3">&copy;Trip report</p>
+      <p class="my-0 text-white py-3">&copy;Trip report</p>
     </div>
   </footer>
 </body>

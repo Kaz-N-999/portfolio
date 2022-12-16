@@ -31,8 +31,6 @@ class ListController extends Controller
         $request->file('img')->storeAs('public/' . $dir, $file_name);
 
         //データベースに値を挿入
-        //インスタンスを生成
-        $trip = new trip();
         //画像パスを保存
         $trip->img_name = $file_name;
         $trip->path = 'storage/' . $dir . '/' . $file_name;

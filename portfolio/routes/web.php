@@ -36,9 +36,10 @@ Route::get('/info', function () {
     return view('info');
 });
 
-Route::get('/map', function () {
-    return view('map');
-});
+//Google map の表示
+Route::get('/map','App\Http\Controllers\MarkerController@index');
+//マーカーの登録
+Route::post('/marker','App\Http\Controllers\MarkerController@make_marker');
 
 //ログ表示
 Route::get('/list', 'App\Http\Controllers\ListController@read');
