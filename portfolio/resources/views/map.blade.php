@@ -47,12 +47,17 @@
     var lng = [];
     var marker = [];
     var markerData = [];
+    var count = 0;
   </script>
   @foreach ($markers as $marker)
     <script>
-      lat = @json($marker->lat);
-      lng = @json($marker->lng);
-      markerData = [@json(var_dump($marker->lat)),@json(var_dump($marker->lng))];
+      {{$f_lat = (float) $marker->lat;}}
+      {{$f_lng = (float) $marker->lng;}}
+        lat[count] = @json($f_lat);
+        lng[count] = @json($f_lng);
+//    markerData = [@json($f_lat),@json($f_lng)];
+      count ++;
+      console.log(count);
     </script>
   @endforeach
 
@@ -79,7 +84,7 @@
 //      var latNum = parseFloat(lat[i]);
 //      var lngNum = parseFloat(lng[i]);
         // マーカー位置セット
-        markerLatLng = new google.maps.LatLng({lat: markerData[i], lng: markerData[i]}); // 緯度経度のデータ作成
+        markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
          // マーカーのセット
         marker[i] = new google.maps.Marker({
             position: markerLatLng,          // 位置を指定

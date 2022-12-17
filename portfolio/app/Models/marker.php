@@ -18,8 +18,8 @@ class marker extends Model
         'lat',
         'lng',
     ];
-    protected $casts = [
-        'lat' => 'float'
-    ];
+    //protected $casts = [
+    //    'lat' => 'float'
+    //];
     
 }
