@@ -22,19 +22,23 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/info">登録画面</a>
+                        <a class="nav-link active" aria-current="page" href="/info">登録画面</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Google MAP</a>
+                        <a class="nav-link" href="/map">Google MAP</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/list">履歴閲覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/contact">CONTACT</a>
+                        <a class="nav-link" href="/contact">CONTACT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ログアウト</a>
+                        <form method="post" name='logout' action="logout">
+                            @csrf
+                            <input type="hidden">
+                            <a href="javascript:logout.submit()" class="nav-link">ログアウト</a>
+                        </form>
                     </li>
             </div>
         </div>
@@ -44,14 +48,14 @@
         @csrf
 
         <label>メールアドレス</label>
-        <input type="text" name="email" value="" >
+        <input type="text" name="email" value="">
         <!-- バリデーションにはじかれた場合エラーメッセージを表示 -->
         @if ($errors->has('email'))
         <p class="error-message">{{ $errors->first('email') }}</p>
         @endif
 
         <label>タイトル</label>
-        <input type="text" name="title" value="お問い合わせ" >
+        <input type="text" name="title" value="お問い合わせ">
         <!-- バリデーションにはじかれた場合エラーメッセージを表示 -->
         @if ($errors->has('title'))
         <p class="error-message">{{ $errors->first('title') }}</p>

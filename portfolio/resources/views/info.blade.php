@@ -51,7 +51,11 @@
                 <a class="nav-link" href="/contact">CONTACT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">ログアウト</a>
+                <form method="post" name='logout' action="logout" >
+                  @csrf
+                  <input type="hidden">
+                  <a href="javascript:logout.submit()" class="nav-link">ログアウト</a>
+                </form>
               </li>
           </div>
         </div>

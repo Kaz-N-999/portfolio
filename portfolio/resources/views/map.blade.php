@@ -15,18 +15,17 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/info">旅行写真記録アプリ</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-        aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/info">登録画面</a>
+            <a class="nav-link active" aria-current="page" href="/info">登録画面</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="map">Google MAP</a>
+            <a class="nav-link" href="/map">Google MAP</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/list">履歴閲覧</a>
@@ -35,7 +34,11 @@
             <a class="nav-link" href="/contact">CONTACT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <form method="post" name='logout' action="logout" >
+              @csrf
+              <input type="hidden">
+              <a href="javascript:logout.submit()" class="nav-link">ログアウト</a>
+            </form>
           </li>
       </div>
     </div>
@@ -51,13 +54,15 @@
   </script>
   @foreach ($markers as $marker)
     <script>
+      //文字列型をfloat型に変換
       {{$f_lat = (float) $marker->lat;}}
       {{$f_lng = (float) $marker->lng;}}
+      //配列にjavascriptの値として格納
         lat[count] = @json($f_lat);
         lng[count] = @json($f_lng);
-//    markerData = [@json($f_lat),@json($f_lng)];
+//    カウンター
       count ++;
-      console.log(count);
+//    console.log(count);
     </script>
   @endforeach
 
