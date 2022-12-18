@@ -80,7 +80,7 @@
 
         <input type="file" name="img" accept="image/*">
 
-        <input type="submit" value="送信" onclick="funcBtn()">
+        <input type="submit" value="登録" onclick="funcBtn()">
     </form>
     <script>
         function funcBtn() {

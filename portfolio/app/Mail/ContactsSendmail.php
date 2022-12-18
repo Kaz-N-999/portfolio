@@ -39,8 +39,12 @@ class ContactsSendmail extends Mailable
     public function envelope()
     {
         return new Envelope(
+            //メール内容
+            //件名
             subject: 'Trip report Sendmail',
+            //送信者のemailアドレス
             from: new Address('',$this->email),
+            //管理人のemailアドレス
             to: 'nagaikytk4009@gmail.com'
         );
     }

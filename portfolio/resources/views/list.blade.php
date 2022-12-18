@@ -3,12 +3,12 @@
 <head>
     <title>履歴確認</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="/info.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <center>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/info">旅行写真記録アプリ</a>
@@ -19,19 +19,19 @@
 
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/info">登録画面</a>
+                        <li class="nav-item_list">
+                            <a class="nav-link" aria-current="page" href="/info">登録画面</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item_list">
                             <a class="nav-link" href="/map">Google MAP</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item_list active">
                             <a class="nav-link" href="/list">履歴閲覧</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item_list">
                             <a class="nav-link" href="/contact">CONTACT</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item_list">
                             <form method="post" name='logout' action="logout">
                                 @csrf
                                 <input type="hidden">
@@ -41,6 +41,8 @@
                 </div>
             </div>
         </nav>
+
+    <center>
         <table border="3" cellspacing="0" cellpadding="8" width="90%">
             <tbody>
                 <tr>
@@ -69,7 +71,7 @@
                 @endforeach
             </tbody>
         </table>
-        {!! $items->links() !!}
+        <!-- $items->links() -->
 
     </center>
     <footer class="bg-dark text-center">

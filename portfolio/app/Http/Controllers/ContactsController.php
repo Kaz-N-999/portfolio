@@ -24,12 +24,11 @@ class ContactsController extends Controller
 {
     // バリデーション
     $request->validate([
-    'email' => 'required|email',
     'title' => 'required',
     'body' => 'required'
-  ]);
-    // inputの値を取得
-    $email = $request->email;
+    ]);
+    // inputの値を取得,emailはログイン時に使用しているものを取得
+    $email = Auth::user()->email;
     $title = $request->title;
     $body = $request->body;
 

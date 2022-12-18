@@ -22,10 +22,10 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/info">登録画面</a>
+            <a class="nav-link" aria-current="page" href="/info">登録画面</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/map">Google MAP</a>
+            <a class="nav-link active" href="/map">Google MAP</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/list">履歴閲覧</a>
@@ -73,8 +73,8 @@
 
       // マップの初期化
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: {lat: 36.38992, lng: 139.06065}
+        zoom: 10,
+        center: {lat: 35.681236, lng: 139.767125}
       });
 
       // クリックイベントを追加

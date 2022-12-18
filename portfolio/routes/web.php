@@ -34,22 +34,22 @@ require __DIR__.'/auth.php';
 //登録画面（初期画面）
 Route::get('/info', function () {
     return view('info');
-});
+})->middleware('auth');
 
 //Google map の表示
-Route::get('/map','App\Http\Controllers\MarkerController@index');
+Route::get('/map','App\Http\Controllers\MarkerController@index')->middleware('auth');
 //マーカーの登録
-Route::post('/marker','App\Http\Controllers\MarkerController@make_marker');
+Route::post('/marker','App\Http\Controllers\MarkerController@make_marker')->middleware('auth');
 
 //ログ表示
-Route::get('/list', 'App\Http\Controllers\ListController@read');
+Route::get('/list', 'App\Http\Controllers\ListController@read')->middleware('auth');
 //新規作成
-Route::post('/create', 'App\Http\Controllers\ListController@create');
+Route::post('/create', 'App\Http\Controllers\ListController@create')->middleware('auth');
 //削除機能
-Route::post('/destroy{id}', 'App\Http\Controllers\ListController@destroy')->name('destroy');
+Route::post('/destroy{id}', 'App\Http\Controllers\ListController@destroy')->name('destroy')->middleware('auth');
 
 //入力フォームページ
-Route::get('/contact', 'App\Http\Controllers\ContactsController@index')->name('contact');
+Route::get('/contact', 'App\Http\Controllers\ContactsController@index')->name('contact')->middleware('auth');
 //送信完了ページ
-Route::post('/finish', 'App\Http\Controllers\ContactsController@send');
+Route::post('/finish', 'App\Http\Controllers\ContactsController@send')->middleware('auth');
 

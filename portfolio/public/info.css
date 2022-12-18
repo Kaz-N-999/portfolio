@@ -1,0 +1,38 @@
+/*フッターを下側に固定*/
+footer {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+
+/*問い合わせフォームのタイトルの調整*/
+.c_title{
+    width:200px;
+    margin:30px;
+}
+
+/*問い合わせフォームのテキストエリアの調整*/
+.message{
+    resize: none;
+    width:200px;
+    height:300px;
+    margin-right:40px;
+    margin-left:32px;
+}
+
+/*問い合わせフォームのラベルの調整*/
+.q_lavel{
+    padding-bottom: 50px;
+}
+
+/*ナビゲーションバーの調整*/
+nav{
+    height:56px;
+}
+
+/*リストのナビゲーションバーの調整*/
+.nav-item_list{
+    margin-top:16px;
+}
+
+/*登録画面の調整*/

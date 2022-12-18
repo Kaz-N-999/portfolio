@@ -11,7 +11,7 @@
 <body>
     <h1>送信が完了しました！</h1>
     {!! $title !!} <br>
-    {!! $body !!}
-    <button class="btn" onclick="location.href='contact'" >戻る</button>
+    {!! $body !!} <br>
+    <button class="btn" onclick="location.href='contact'" class="btn btn-dark">戻る</button>
 </body>
 </html>
