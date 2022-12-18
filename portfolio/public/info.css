@@ -1,5 +1,5 @@
 /*フッターを下側に固定*/
-footer {
+.c_footer {
     position: absolute;
     bottom: 0;
     width:100%;
@@ -36,3 +36,26 @@ nav{
 }
 
 /*登録画面の調整*/
+
+#map-container{
+    width:653px;
+    height:653px;
+    margin:0px;
+}
+
+article {
+    display:flex;/*フォームとコンテンツを横並び*/
+}
+
+label{
+    margin:10px;
+}
+
+.txt{
+    width:500px;
+}
+
+#input{
+    margin-top:30px;
+    margin-left:100px;
+}

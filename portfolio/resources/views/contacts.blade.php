@@ -70,7 +70,7 @@
             </form>
         </center>
     </wrapper>
-    <footer class="bg-dark text-center">
+    <footer class="bg-dark text-center c_fotter">
         <div class="container">
             <p class="my-0 text-white py-3">&copy;Trip report</p>
         </div>
