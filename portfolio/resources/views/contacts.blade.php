@@ -51,14 +51,14 @@
             <h1>お問い合わせフォーム</h1>
             <form method="POST" action="/finish">
                 @csrf
-                <label>タイトル:</label>
+                <label class="c_title_lavel">タイトル:</label><br>
                 <input class="c_title" type="text" name="title" value="お問い合わせ"><br>
                 <!-- バリデーションにはじかれた場合エラーメッセージを表示 -->
                 @if ($errors->has('title'))
                 <p class="error-message">{{ $errors->first('title') }}</p>
                 @endif
 
-                <label class="q_lavel">お問い合わせ内容:</label>
+                <label class="q_lavel">お問い合わせ内容:</label><br>
                 <!-- oldヘルパは直前の内容を表示する -->
                 <textarea class="message" name="body">{{ old('body') }}</textarea>
                 <!-- バリデーションにはじかれた場合エラーメッセージを表示 -->

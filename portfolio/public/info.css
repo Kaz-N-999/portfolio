@@ -6,23 +6,28 @@
 }
 
 /*問い合わせフォームのタイトルの調整*/
+.c_title_lavel{
+    text-align:left;
+    width:50%;
+}
 .c_title{
-    width:200px;
-    margin:30px;
+    width:630px;
+    margin-bottom:30px;
 }
 
 /*問い合わせフォームのテキストエリアの調整*/
 .message{
     resize: none;
-    width:200px;
+    width:630px;
     height:300px;
-    margin-right:40px;
-    margin-left:32px;
+    margin-left:62px;
 }
 
 /*問い合わせフォームのラベルの調整*/
 .q_lavel{
-    padding-bottom: 50px;
+    width:50%;
+    padding-bottom: 0px;
+    text-align:left;
 }
 
 /*ナビゲーションバーの調整*/
