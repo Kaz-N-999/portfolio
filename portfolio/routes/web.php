@@ -40,6 +40,8 @@ Route::get('/info', function () {
 Route::get('/map','App\Http\Controllers\MarkerController@index')->middleware('auth');
 //マーカーの登録
 Route::post('/marker','App\Http\Controllers\MarkerController@make_marker')->middleware('auth');
+//マーカーの削除
+Route::get('/delete_markers','App\Http\Controllers\MarkerController@delete_markers')->middleware('auth');
 
 //ログ表示
 Route::get('/list', 'App\Http\Controllers\ListController@read')->middleware('auth');

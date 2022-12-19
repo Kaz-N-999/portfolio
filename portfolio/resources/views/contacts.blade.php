@@ -46,7 +46,6 @@
         </div>
     </nav>
     <!-- お問い合わせフォーム -->
-    <wrapper>
         <center>
             <h1>お問い合わせフォーム</h1>
             <form method="POST" action="/finish">
@@ -69,7 +68,6 @@
                 <button type="submit" class="btn btn-success">送信</button>
             </form>
         </center>
-    </wrapper>
     <footer class="bg-dark text-center c_fotter">
         <div class="container">
             <p class="my-0 text-white py-3">&copy;Trip report</p>

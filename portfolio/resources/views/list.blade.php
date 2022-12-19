@@ -9,72 +9,74 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/info">旅行写真記録アプリ</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                    aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/info">旅行写真記録アプリ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                        <li class="nav-item_list">
-                            <a class="nav-link" aria-current="page" href="/info">登録画面</a>
-                        </li>
-                        <li class="nav-item_list">
-                            <a class="nav-link" href="/map">Google MAP</a>
-                        </li>
-                        <li class="nav-item_list active">
-                            <a class="nav-link" href="/list">履歴閲覧</a>
-                        </li>
-                        <li class="nav-item_list">
-                            <a class="nav-link" href="/contact">CONTACT</a>
-                        </li>
-                        <li class="nav-item_list">
-                            <form method="post" name='logout' action="logout">
-                                @csrf
-                                <input type="hidden">
-                                <a href="javascript:logout.submit()" class="nav-link">ログアウト</a>
-                            </form>
-                        </li>
-                </div>
-            </div>
-        </nav>
-
-    <center>
-        <table border="3" cellspacing="0" cellpadding="8" width="90%">
-            <tbody>
-                <tr>
-                    <th>写真</th>
-                    <th>日付</th>
-                    <th>都道府県</th>
-                    <th>市町村</th>
-                    <th>コメント</th>
-                    <th>削除</th>
-                </tr>
-
-                @foreach ($items as $item)
-                <tr>
-                    <td><img src="{{ asset($item->path) }}" width="250px" height="250px"></td>
-                    <td>{{$item->created_at}}</td>
-                    <td>{{$item->prefecture}}</td>
-                    <td>{{$item->city}}</td>
-                    <td>{{$item->comment}}</td>
-                    <td>
-                        <form action={{ route('destroy',['id'=> $item->id]), }} method="POST">
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item_list">
+                        <a class="nav-link" aria-current="page" href="/info">登録画面</a>
+                    </li>
+                    <li class="nav-item_list">
+                        <a class="nav-link" href="/map">Google MAP</a>
+                    </li>
+                    <li class="nav-item_list">
+                        <a class="nav-link active" href="/list">履歴閲覧</a>
+                    </li>
+                    <li class="nav-item_list">
+                        <a class="nav-link" href="/contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item_list">
+                        <form method="post" name='logout' action="logout">
                             @csrf
-                            <button type="submit" class="btn btn-danger">削除</button>
+                            <input type="hidden">
+                            <a href="javascript:logout.submit()" class="nav-link">ログアウト</a>
                         </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <!-- $items->links() -->
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <center>
+            <table border="3" cellspacing="0" cellpadding="8" width="90%">
+                <tbody>
+                    <tr>
+                        <th>写真</th>
+                        <th>日付</th>
+                        <th>都道府県</th>
+                        <th>市町村</th>
+                        <th>コメント</th>
+                        <th>削除</th>
+                    </tr>
 
-    </center>
-    <footer class="bg-dark text-center">
+                    @foreach ($items as $item)
+                    <tr>
+                        <td><img src="{{ asset($item->path) }}" width="250px" height="250px"></td>
+                        <td>{{$item->created_at}}</td>
+                        <td>{{$item->prefecture}}</td>
+                        <td>{{$item->city}}</td>
+                        <td>{{$item->comment}}</td>
+                        <td>
+                            <form action={{ route('destroy',['id'=> $item->id]), }} method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">削除</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <!-- $items->links() -->
+            <div class="push"></div>
+        </center>
+    </div>
+
+    <footer class="l_fotter bg-dark text-center">
         <div class="container">
             <p class="my-0 text-white py-3">&copy;Trip report</p>
         </div>

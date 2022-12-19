@@ -64,3 +64,26 @@ label{
     margin-top:30px;
     margin-left:100px;
 }
+
+/*履歴画面の調整*/
+
+.l_footer,
+.push {
+    height: 50px;
+}
+
+/*履歴画面のフッターの位置の調整*/
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+/*マップのフォームの位置調整*/
+.form{
+    display:flex;
+    width:100%;
+}
+
+.d_m_button{
+    margin-left:360px;
+}

@@ -10,6 +10,7 @@ use App\Models\User;
 
 class MarkerController extends Controller
 {
+    //保存したマーカーを取得してマップを表示
     public function index()
     {
         //データを取得
@@ -45,5 +46,18 @@ class MarkerController extends Controller
 
         // 登録画面に戻る
         return view('map', ['markers' => $markers]);
+    }
+
+    //ログインユーザのマーカー全件削除
+    public function delete_markers()
+    {
+        //インスタンス生成
+        $markers = new marker();
+        //データを取得
+        $markers = User::find(Auth::id())->markers();
+        //削除
+        $markers->delete();
+        // 登録画面に戻る
+        return view('map',['markers' => $markers]);
     }
 }

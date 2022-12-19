@@ -65,7 +65,8 @@ class ListController extends Controller
         // 指定されたIDのレコードを削除
         $report->deleteBookById($id);
         // 削除したらデータを取得したら一覧画面に戻る
-        $items = DB::table('report')->orderBy('id')->cursorPaginate(5);
-        return view('/list', ['items' => $items]);
+        //$items = DB::table('report')->orderBy('id')->cursorPaginate(5);
+        $user = User::find(Auth::id())->reports;
+        return view('/list', ['items' => $user]);
     }
 }

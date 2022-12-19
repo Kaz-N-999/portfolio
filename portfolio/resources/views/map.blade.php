@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Google Maps</title>
+  <link rel="stylesheet" href="/info.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -66,7 +67,7 @@
     </script>
   @endforeach
 
-  <div id="map" style="height:500px">
+  <div id="map" style="height:470px">
   </div>
   <script type="text/javascript">
     function initMap() {
@@ -102,16 +103,17 @@
       
     }
   </script>
-
+<div class="form">
   <form name="markerform" method="POST" action="/marker">
 
     @csrf
     <label>緯度<input type="text" id="setlat" name="lat" readonly></label>
     <label>経度<input type="text" id="setlng" name="lng" readonly></label>
-    <input type="submit" value="マーカーを保存する">
+    <input class="btn btn-primary" type="submit" value="マーカーを保存する">
 
   </form>
-
+  <button ondblclick="location.href='/delete_markers'" class="d_m_button btn btn-danger">全てのマーカーを削除(ダブルクリック)</button>
+</div>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config("services.google-map.apikey")}}&callback=initMap"></script>
 
   <footer class="bg-dark text-center">
