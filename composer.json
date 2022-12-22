@@ -35,6 +35,10 @@
         }
     },
     "scripts": {
+
+        "compile": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
         "heroku-postbuild": "npm run prod",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
