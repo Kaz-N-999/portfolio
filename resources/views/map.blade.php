@@ -114,7 +114,7 @@
   </form>
   <button ondblclick="location.href='/delete_markers'" class="d_m_button btn btn-danger">全てのマーカーを削除(ダブルクリック)</button>
 </div>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config("services.google-map.apikey")}}&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjrf3kxbis98-4E61bLmoMED9gRvW8IY8&callback=initMap"></script>
 
   <footer class="bg-dark text-center">
     <div class="container">
