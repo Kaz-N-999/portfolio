@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Schema;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
         //ページネーションの見た目の設定
         //Paginator::defaultView('vendor.pagination.custom');
+        
         if (config('app.env') === 'production') {
             URL::forceScheme('https');
         }
