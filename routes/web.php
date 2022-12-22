@@ -54,4 +54,3 @@ Route::post('/destroy{id}', 'App\Http\Controllers\ListController@destroy')->name
 Route::get('/contact', 'App\Http\Controllers\ContactsController@index')->name('contact')->middleware('auth');
 //送信完了ページ
 Route::post('/finish', 'App\Http\Controllers\ContactsController@send')->middleware('auth');
-
