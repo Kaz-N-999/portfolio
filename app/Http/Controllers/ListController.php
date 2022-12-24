@@ -10,37 +10,56 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
 class ListController extends Controller
 {
     //データベースから値を取得
     public function read()
     {
+        //ログインユーザのID取得
         $user = User::find(Auth::id())->reports;
-        //$user = trip::orderBy('created_at')->cursorPaginate(5);
+        
         //5件ずつデータを表示
         //$items = $user->orderBy('created_at')->cursorPaginate(5);
-            
-        return view('/list', ['items' => $user]);
 
+        return view('/list', ['items' => $user]);
     }
 
     //データベースに新規登録
     public function create(Request $request)
     {
         //画像の保存
+        //useridを取得
         $dir = Auth::id();
+
         //インスタンス生成
         $report = new report();
-        // アップロードされたファイル名を取得
-        $file_name = $request->file('img')->getClientOriginalName();
+
+        //バリデーションs3追記箇所
+        if ($request->file('img')->isValid()) {
+
+            //画像を取得
+            //$disk=Storage::disk('s3');
+            $file = $request->file('img');
+            //画像を保存
+            $path = Storage::put($dir, $file);
+            //画像パスを取得
+            $file_name = Storage::path($path);
+            //urlを保存
+            $url = Storage::url($path);
+            $report->path = $url;
+            //画像パスを保存
+            $report->img_name = $file_name;
+        }
+
+
         //ディレクトリに保存
-        $request->file('img')->storeAs('public/' . $dir, $file_name);
+        //$request->file('img')->storeAs('public/' . $dir, $file_name);
 
         //データベースに値を挿入
+        //$report->path = 'storage/' . $dir . '/' . $file_name;
         //画像パスを保存
-        $report->img_name = $file_name;
-        $report->path = 'storage/' . $dir . '/' . $file_name;
+        //$report->img_name = $file_name;
+
         //テキストデータを保存
         $report->user_id = Auth::id();
         $report->prefecture = $request->prefecture;
@@ -61,10 +80,12 @@ class ListController extends Controller
         $deleteimg = report::find($id);
         $d_imgname = $deleteimg->img_name;
         //画像を削除する
-        Storage::disk('public')->delete(Auth::id().$d_imgname);
+        //(local) Storage::disk('public')->delete(Auth::id() . $d_imgname);
+        Storage::delete($d_imgname);
+
         // 指定されたIDのレコードを削除
         $report->deleteBookById($id);
-        // 削除したらデータを取得したら一覧画面に戻る
+        // 削除したらデータを取得し一覧画面に戻る
         //$items = DB::table('report')->orderBy('id')->cursorPaginate(5);
         $user = User::find(Auth::id())->reports;
         return view('/list', ['items' => $user]);

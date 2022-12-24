@@ -76,7 +76,7 @@
     <div id="map-container"></div>
 
     <div class="side">
-      <h1 id="output">都道府県を選択してね</h1>
+      <h1 id="output"><font color="red">都道府県を選択してね</font></h1>
 
       <form name="myform" method="POST" action="/create" enctype="multipart/form-data">
         @csrf
