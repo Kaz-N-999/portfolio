@@ -27,30 +27,31 @@ class ListController extends Controller
     //データベースに新規登録
     public function create(Request $request)
     {
+        //herokunのDBに合わせるためのバリデーション
+        $validated = $request->validate([
+            'comment' => 'max:191',
+            'city' => 'max:191',
+        ]);
+
         //画像の保存
         //useridを取得
         $dir = Auth::id();
-
         //インスタンス生成
         $report = new report();
 
-        //バリデーションs3追記箇所
-        if ($request->file('img')->isValid()) {
-
-            //画像を取得
-            //$disk=Storage::disk('s3');
-            $file = $request->file('img');
-            //画像を保存
-            $path = Storage::put($dir, $file);
-            //画像パスを取得
-            $file_name = Storage::path($path);
-            //urlを保存
-            $url = Storage::url($path);
-            $report->path = $url;
-            //画像パスを保存
-            $report->img_name = $file_name;
-        }
-
+        //s3追記箇所
+        //画像を取得
+        //$disk=Storage::disk('s3');
+        $file = $request->file('img');
+        //画像を保存
+        $path = Storage::put($dir, $file);
+        //画像パスを取得
+        $file_name = Storage::path($path);
+        //urlを保存
+        $url = Storage::url($path);
+        $report->path = $url;
+        //画像パスを保存
+        $report->img_name = $file_name;
 
         //ディレクトリに保存
         //$request->file('img')->storeAs('public/' . $dir, $file_name);

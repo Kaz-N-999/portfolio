@@ -8,10 +8,8 @@ class HelloController extends Controller
 {
     public function index () 
     {
-        $hello = 'Hello,World!';
-        $hello_array = ['Hello', 'こんにちは', 'ニーハオ'];
-
-        return view('index', compact('hello', 'hello_array'));
+        $e_message="都道府県が選択されていません";
+        return view('info', ['e_message' => $e_message]);
     }
 
 }

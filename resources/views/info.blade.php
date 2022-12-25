@@ -76,28 +76,28 @@
     <div id="map-container"></div>
 
     <div class="side">
-      <h1 id="output"><font color="red">都道府県を選択してね</font></h1>
+      <h2><font color="red"></font></h2>
+      <h1 id="output"><font color="green">都道府県を選択してね</font></h1>
 
       <form name="myform" method="POST" action="/create" enctype="multipart/form-data">
         @csrf
+        <label id="img">写真:  <input type="file" name="img" accept="image/png image/jpeg"></label><br>
 
-        <label id="city">市町村:<input type="text" name="city" required></label><br>
-        <label id="comment">コメント:<input type="text" class="txt" name="comment" required></label><br>
-
-        <label id="img">写真:  <input type="file" name="img" accept="image/*"></label><br>
+        <label id="city">場所の詳細:<input type="text" name="city" value="{{ old('city') }}" required></label><br>
+        <label id="comment">一言コメント:（191文字以内）<br><input type="text" class="txt" name="comment" value="" required></label><br>
 
         <input type="submit" value="登録" id="input" class="btn btn-success" onclick="funcBtn()">
       </form>
       <script>
         function funcBtn() {
-    // エレメントを作成
-    var ele = document.createElement('input');
-    // データを設定
-    ele.setAttribute('type', 'hidden');
-    ele.setAttribute('name', 'prefecture');
-    ele.setAttribute('value', prefecture);
-    // 要素を追加
-    document.myform.appendChild(ele);
+          // エレメントを作成
+            var ele = document.createElement('input');
+          // データを設定
+            ele.setAttribute('type', 'hidden');
+            ele.setAttribute('name', 'prefecture');
+            ele.setAttribute('value', prefecture);
+          // 要素を追加
+            document.myform.appendChild(ele);
 }
       </script>
     </div>

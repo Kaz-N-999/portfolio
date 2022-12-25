@@ -56,8 +56,9 @@ label{
     margin:10px;
 }
 
+/*コメントの入力フォーム*/
 .txt{
-    width:500px;
+    width:580px;
 }
 
 #input{

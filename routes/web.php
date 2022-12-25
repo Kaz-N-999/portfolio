@@ -43,7 +43,7 @@ Route::post('/marker','App\Http\Controllers\MarkerController@make_marker')->midd
 //マーカーの削除
 Route::get('/delete_markers','App\Http\Controllers\MarkerController@delete_markers')->middleware('auth');
 
-//ログ表示
+//登録ログ表示
 Route::get('/list', 'App\Http\Controllers\ListController@read')->middleware('auth');
 //新規作成
 Route::post('/create', 'App\Http\Controllers\ListController@create')->middleware('auth');
