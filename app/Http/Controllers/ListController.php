@@ -28,9 +28,11 @@ class ListController extends Controller
     public function create(Request $request)
     {
         //herokunのDBに合わせるためのバリデーション
+        //ファイルのバリデーション
         $validated = $request->validate([
             'comment' => 'max:191',
             'city' => 'max:191',
+            'img' => 'image'
         ]);
 
         //画像の保存
