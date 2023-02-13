@@ -43,7 +43,7 @@
     </nav>
     <div class="wrapper">
         <center>
-            <table border="3" cellspacing="0" cellpadding="8" width="90%">
+            <table border="3" cellspacing="0" cellpadding="8" width="100%">
                 <tbody>
                     <tr>
                         <th>写真</th>
@@ -62,6 +62,7 @@
                         <td>{{$item->city}}</td>
                         <td>{{$item->comment}}</td>
                         <td>
+                            <button type="submit" class="btn btn-danger">編集</button>
                             <form action={{ route('destroy',['id'=> $item->id]), }} method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">削除</button>
