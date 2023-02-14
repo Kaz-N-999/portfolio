@@ -87,7 +87,7 @@
         <div id="photo_view"></div>
 
         <label id="city">場所の詳細:<input type="text" name="city" value="{{ old('city') }}" required></label><br>
-        <label id="comment">一言コメント:（191文字以内）<br><input type="text" class="txt" name="comment" value="{{ old('comment') }}" required></label><br>
+        <label id="comment">一言コメント:（191文字以内）<br><textarea type="text" class="txt" name="comment" value="{{ old('comment') }}" required></textarea></label><br>
 
         <input type="submit" value="登録" id="input" class="btn btn-success" onclick="funcBtn()">
       </form>
