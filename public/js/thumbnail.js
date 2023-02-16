@@ -1,5 +1,5 @@
 $(function() {
-	$('input[id=photo_up]').change(function() {// upするinputのID
+	$('div[id=photo_up]').change(function() {// upするinputのID
 
 		var file = $(this).prop('files')[0];
 

@@ -7,6 +7,7 @@
   <script src="js\jquery-3.6.1.min.js"></script>
   <script src="js\jquery.japan-map.js"></script>
   <script src="js\jquery.japan-map.min.js"></script>
+  <script src="js\jquery.form.js"></script>
 
   <link rel="stylesheet" href="/info.css">
 
@@ -76,7 +77,12 @@
     <div id="map-container"></div>
 
     <div class="side">
-      <h1 id="output"><font color="green">都道府県を選択してね</font></h1>
+      <h1 id="output">
+        <font color="green">都道府県を選択してね</font>
+      </h1>
+      <select id="select-pref">
+        <option value="">都道府県を選択してください</option>
+      </select>
 
       <form name="myform" method="POST" action="/create" enctype="multipart/form-data">
         @csrf
@@ -87,7 +93,8 @@
         <div id="photo_view"></div>
 
         <label id="city">場所の詳細:<input type="text" name="city" value="{{ old('city') }}" required></label><br>
-        <label id="comment">一言コメント:（191文字以内）<br><textarea type="text" class="txt" name="comment" value="{{ old('comment') }}" required></textarea></label><br>
+        <label id="comment">一言コメント:（191文字以内）<br><textarea type="text" class="txt" name="comment"
+            value="{{ old('comment') }}" required></textarea></label><br>
 
         <input type="submit" value="登録" id="input" class="btn btn-success" onclick="funcBtn()">
       </form>
