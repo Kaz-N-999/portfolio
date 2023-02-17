@@ -4,20 +4,25 @@
 
 <head>
   <title>旅行写真記録アプリ</title>
-  <script src="js\jquery-3.6.1.min.js"></script>
+  <!--<script src="js\jquery-3.6.1.min.js"></script>
   <script src="js\jquery.japan-map.js"></script>
   <script src="js\jquery.japan-map.min.js"></script>
-  <script src="js\jquery.form.js"></script>
+  <script src="js\jquery.form.js"></script>-->
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/newmap.js"></script>
+
 
   <link rel="stylesheet" href="/info.css">
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <script>
-    var prefecture
+    <script type = "text/javascript">
+    /*var prefecture
         $(function() {
             $("#map-container").japanMap({
                 onSelect: function(data) {
@@ -26,6 +31,11 @@
                     target.innerHTML = data.name;
                 }
             });
+        });*/
+
+        //newmap
+        $(document).ready(function() {
+            $('#jmap').jmap();
         });
   </script>
 </head>
@@ -74,7 +84,9 @@
   </ul>
   @endif
   <article>
-    <div id="map-container"></div>
+    <!--<div id="map-container"></div>-->
+
+    <div id="jmap"></div>
 
     <div class="side">
       <h1 id="output">
